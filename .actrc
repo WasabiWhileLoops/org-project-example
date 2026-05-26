@@ -1,0 +1,5 @@
+-P ubuntu-latest=ubuntu-latest
+--container-architecture linux/arm64
+--pull=false
+--artifact-server-path /tmp/artifacts
+--artifact-server-port 34567

@@ -23,7 +23,7 @@ jobs:
         run: uv run pytest --log-file="/tmp/test.log" --log-file-level=INFO
 
       - name: Upload test logs
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v5 #
         with:
           name: test-logs
           path: /tmp/test.log
