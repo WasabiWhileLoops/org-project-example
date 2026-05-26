@@ -1,0 +1,11 @@
+name: "Exercise 3: Capture test logs as artifact"
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print inputted name
+        run: echo "Running job on branch ${{ github.ref }}"
