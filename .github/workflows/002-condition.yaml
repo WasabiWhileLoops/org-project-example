@@ -1,0 +1,16 @@
+name: "Exercise 2: Run on main only"
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: string
+        default: "Name"
+
+jobs:
+  print-name:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print inputted name
+        run: echo ${{ inputs.name }}
