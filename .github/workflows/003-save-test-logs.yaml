@@ -19,4 +19,4 @@ jobs:
           python-version-file: "pyproject.toml"
 
       - name: Run tests
-        run: uv run pytest --log-file="/tmp/test.log"
+        run: uv run pytest --log-file="/tmp/test.log" --log-file-level=INFO
