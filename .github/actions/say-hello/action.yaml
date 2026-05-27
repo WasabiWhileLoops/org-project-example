@@ -1,0 +1,16 @@
+name: 'Say Hello'
+description: Print "Hello World" to stdout"
+inputs:
+  name:
+    description: 'Who to greet'
+    required: false
+    default: 'World'
+
+runs:
+  # For more on composite actions, see:
+  # https://docs.github.com/en/actions/sharing-automations/creating-actions/creating-a-composite-action
+  using: composite
+  steps:
+    - shell: bash
+      run: echo "Hello ${{ inputs.name }}"
+  
