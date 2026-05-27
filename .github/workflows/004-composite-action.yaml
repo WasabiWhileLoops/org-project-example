@@ -1,0 +1,20 @@
+name: "Exercise 4: Minimal composite action"
+
+on: 
+  workflow_dispatch:
+    inputs:
+      name:
+        type: string
+        default: "Name"
+
+jobs:
+  call-say-hello-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Run composite action
+        uses: ./.github/actions/say-hello
+        with:
+          name: 'Mario'

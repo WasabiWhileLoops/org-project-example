@@ -1,0 +1,26 @@
+name: Test OIDC with AWS
+
+on:
+  workflow_dispatch:   # run manually from Actions tab
+
+jobs:
+  aws-test:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # REQUIRED for OIDC
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: "arn:aws:iam::560133288359:role/GitHubCI-CDRole"
+          aws-region: eu-central-1
+
+      - name: Who am I?
+        run: aws sts get-caller-identity
+
+      - name: List S3 bucket
+        run: aws s3 ls s3://wasabiwhileloops-datalake
